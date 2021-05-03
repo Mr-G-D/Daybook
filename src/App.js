@@ -1,4 +1,5 @@
 import React from "react";
+import Home from "./components/home/Home";
 import {
   BrowserRouter as Router,
   Switch,
@@ -11,6 +12,9 @@ function App() {
   return (
     <Router>
       <Navbar />
+      <Switch>
+        <Route exact path="/" component={Home} />
+      </Switch>
     </Router>
   );
 }
