@@ -1,6 +1,12 @@
 import React from "react";
+import { deleteNote } from "./../../store/actions/noteAction";
+import { useDispatch } from "react-redux";
 
 const Note = ({ note }) => {
+  const dispatch = useDispatch();
+  const deleteNoteHandler = () => {
+    dispatch(deleteNote(note));
+  };
   return (
     <div className="note white">
       <div className="right-align">
@@ -13,6 +19,7 @@ const Note = ({ note }) => {
         <i
           style={{ cursor: "pointer" }}
           className="material-icons"
+          onClick={deleteNoteHandler}
         >
           delete
         </i>
@@ -21,7 +28,12 @@ const Note = ({ note }) => {
       <p className="truncate">{note.content}</p>
       <p className="grey-text">Days ago</p>
       <div className="right-align">
-        <i className="material-icons">edit</i>
+        <i
+          style={{ cursor: "pointer" }}
+          className="material-icons"
+        >
+          edit
+        </i>
       </div>
     </div>
   );
