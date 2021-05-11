@@ -1,5 +1,8 @@
 import React from "react";
-import { deleteNote } from "./../../store/actions/noteAction";
+import {
+  deleteNote,
+  toggleFav,
+} from "./../../store/actions/noteAction";
 import { useDispatch } from "react-redux";
 
 const Note = ({ note }) => {
@@ -7,14 +10,21 @@ const Note = ({ note }) => {
   const deleteNoteHandler = () => {
     dispatch(deleteNote(note));
   };
+  const toggleFavHandler = () => {
+    dispatch(toggleFav(note));
+  };
+  const favIcon = note.favorite
+    ? "favorite"
+    : "favorite_border";
   return (
     <div className="note white">
       <div className="right-align">
         <i
           style={{ cursor: "pointer" }}
           className="material-icons red-text"
+          onClick={toggleFavHandler}
         >
-          favorite
+          {favIcon}
         </i>
         <i
           style={{ cursor: "pointer" }}
