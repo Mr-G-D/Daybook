@@ -4,16 +4,8 @@ import { addNote } from "../../store/actions/noteAction";
 import { useDispatch } from "react-redux";
 
 const Form = () => {
-  const [
-    title,
-    bindTitle,
-    resetTitle,
-  ] = useInput();
-  const [
-    content,
-    bindContent,
-    resetContent,
-  ] = useInput();
+  const [title, bindTitle, resetTitle] = useInput();
+  const [content, bindContent, resetContent] = useInput();
   const dispatch = useDispatch();
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -23,13 +15,8 @@ const Form = () => {
   };
   return (
     <div className="section">
-      <form
-        onSubmit={handleSubmit}
-        className="white"
-      >
-        <h5 className="grey-text text-darken-3">
-          New Note
-        </h5>
+      <form onSubmit={handleSubmit} className="white">
+        <h5 className="grey-text text-darken-3">New Note</h5>
         <div className="input-field">
           <input
             id="note_title"
@@ -37,10 +24,7 @@ const Form = () => {
             className="validate"
             {...bindTitle}
           />
-          <label
-            className="active"
-            htmlFor="note_title"
-          >
+          <label className="active" htmlFor="note_title">
             Title
           </label>
         </div>
@@ -52,9 +36,7 @@ const Form = () => {
           ></textarea>
           <label htmlFor="body">Body</label>
         </div>
-        <button className="btn green">
-          Submit
-        </button>
+        <button className="btn green">Submit</button>
       </form>
     </div>
   );
