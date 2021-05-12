@@ -12,6 +12,9 @@ const Note = ({ note }) => {
   const toggleFavHandler = () => {
     dispatch(toggleFav(note));
   };
+  const editNoteHandler = () => {
+    dispatch({ type: "EDIT_NOTE", payload: note });
+  };
   const favIcon = note.favorite ? "favorite" : "favorite_border";
   return (
     <div className="note white">
@@ -38,7 +41,11 @@ const Note = ({ note }) => {
       <p className="grey-text">{moment(note.createdAt.toDate()).fromNow()}</p>
       <div className="right-align">
         <Link to={"/edit/" + note.id}>
-          <i style={{ cursor: "pointer" }} className="material-icons">
+          <i
+            style={{ cursor: "pointer" }}
+            className="material-icons"
+            onClick={editNoteHandler}
+          >
             edit
           </i>
         </Link>
