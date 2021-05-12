@@ -1,8 +1,6 @@
 import React from "react";
-import {
-  deleteNote,
-  toggleFav,
-} from "./../../store/actions/noteAction";
+import { deleteNote, toggleFav } from "./../../store/actions/noteAction";
+import moment from "moment";
 import { useDispatch } from "react-redux";
 
 const Note = ({ note }) => {
@@ -13,9 +11,7 @@ const Note = ({ note }) => {
   const toggleFavHandler = () => {
     dispatch(toggleFav(note));
   };
-  const favIcon = note.favorite
-    ? "favorite"
-    : "favorite_border";
+  const favIcon = note.favorite ? "favorite" : "favorite_border";
   return (
     <div className="note white">
       <div className="right-align">
@@ -26,22 +22,15 @@ const Note = ({ note }) => {
         >
           {favIcon}
         </i>
-        <i
-          style={{ cursor: "pointer" }}
-          className="material-icons"
-          onClick={deleteNoteHandler}
-        >
+        <i style={{ cursor: "pointer" }} className="material-icons" onClick={deleteNoteHandler}>
           delete
         </i>
       </div>
       <h5 className="black-text">{note.title}</h5>
       <p className="truncate">{note.content}</p>
-      <p className="grey-text">Days ago</p>
+      <p className="grey-text">{moment(note.createdAt.toDate()).fromNow()}</p>
       <div className="right-align">
-        <i
-          style={{ cursor: "pointer" }}
-          className="material-icons"
-        >
+        <i style={{ cursor: "pointer" }} className="material-icons">
           edit
         </i>
       </div>

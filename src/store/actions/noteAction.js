@@ -1,9 +1,5 @@
 export const addNote = (note) => {
-  return (
-    dispatch,
-    getState,
-    { getFirestore },
-  ) => {
+  return (dispatch, getState, { getFirestore }) => {
     const firestore = getFirestore();
     firestore
       .collection("notes")
@@ -22,11 +18,7 @@ export const addNote = (note) => {
 };
 
 export const deleteNote = (note) => {
-  return (
-    dispatch,
-    getState,
-    { getFirestore },
-  ) => {
+  return (dispatch, getState, { getFirestore }) => {
     const firestore = getFirestore();
     firestore
       .collection("notes")
@@ -42,11 +34,7 @@ export const deleteNote = (note) => {
 };
 
 export const toggleFav = (note) => {
-  return (
-    dispatch,
-    getState,
-    { getFirestore },
-  ) => {
+  return (dispatch, getState, { getFirestore }) => {
     const favStatus = !note.favorite;
     const firestore = getFirestore();
     firestore
