@@ -1,1 +1,1 @@
-This is a clone of a popular notes collecting application known as evernote(https://evernote.com/). Built completely using React.js and Firebase.
+This is an application built for taking note of your day to day activities or memories. Built using React.js and Firebase.
